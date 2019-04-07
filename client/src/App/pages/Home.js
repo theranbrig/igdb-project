@@ -1,9 +1,6 @@
-import { useFetch } from '../utlities/hooks';
-import Spinner from '../components/Spinner';
 import styled from 'styled-components';
-import Carousel from '../components/Carousel';
-import Form from '../components/Form';
 import React from 'react';
+import Form from '../components/Form';
 import Heading from '../components/Heading';
 import NavBar from '../components/NavBar';
 
@@ -33,9 +30,6 @@ const MainStyles = styled.div`
 	p {
 		font-family: 'Press Start 2p';
 	}
-	/* .nes-container {
-		background: #1919a6;
-	} */
 	.loading-screen {
 		display: grid;
 		grid-template-rows: 1fr;
@@ -55,31 +49,21 @@ import NavBar from '../components/NavBar';
 	}
 `;
 
-const Home = () => {
-	const [data, loading] = useFetch('/api/igdb');
-
-	return (
-		<MainStyles>
-			<NavBar />
-			{loading ? (
-				<Spinner loading={loading} />
-			) : (
-				<>
-					<div className="App nes-container is-dark is-rounded">
-						<Heading />
-						<Form />
-						<section className="icon-list">
-							<i className="nes-ash" />
-							<i className="nes-pokeball" />
-							<i className="nes-bulbasaur" />
-							<i className="nes-charmander" />
-							<i className="nes-squirtle" />
-						</section>
-					</div>
-				</>
-			)}
-		</MainStyles>
-	);
-};
+const Home = () => (
+  <MainStyles>
+    <NavBar />
+    <div className="App nes-container is-dark is-rounded">
+      <Heading />
+      <Form />
+      <section className="icon-list">
+        <i className="nes-ash" />
+        <i className="nes-pokeball" />
+        <i className="nes-bulbasaur" />
+        <i className="nes-charmander" />
+        <i className="nes-squirtle" />
+      </section>
+    </div>
+  </MainStyles>
+);
 
 export default Home;

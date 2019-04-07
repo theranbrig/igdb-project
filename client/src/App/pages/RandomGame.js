@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { useFetch } from '../utlities/hooks';
 import Form from '../components/Form';
 import Spinner from '../components/Spinner';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import Carousel from '../components/Carousel';
-import Heading from '../components/Heading';
-import ImagePlaceHolder from '../static/images/Image-Holder.jpg';
+
 import NavBar from '../components/NavBar';
+
+import IndividualGame from '../components/IndividualGame';
+import { FirebaseContext } from '../utlities/FirebaseContext';
 
 const RandomGameStyles = styled.div`
 	.top-splash {
@@ -30,8 +31,10 @@ const RandomGameStyles = styled.div`
 	p,
 	h1,
 	button,
-	li {
+	li,
+	a {
 		font-family: 'Press Start 2p';
+		text-decoration: none;
 	}
 	.summary-box {
 		max-height: 550px;
@@ -48,6 +51,9 @@ const RandomGameStyles = styled.div`
 			align-self: center;
 		}
 	}
+	.vote-icons:hover {
+		transform: scale(1.25, 1.25);
+	}
 	.upside-down {
 		-webkit-transform: rotate(180deg);
 		-moz-transform: rotate(180deg);
@@ -56,25 +62,21 @@ const RandomGameStyles = styled.div`
 		transform: rotate(180deg);
 		display: inline-block;
 	}
+	.screenshots {
+		margin-top: 50px;
+	}
 `;
 
 const RandomGame = props => {
-	const [loved, setLoved] = useState(false);
-
 	let platformId = 18;
 	if (props.history.location.query) {
 		platformId = props.history.location.query.platform;
 	}
 	const [data, loading] = useFetch(`/api/random?platform=${platformId}`);
 
-	const toggleHeart = () => {
-		setLoved(!loved);
-	};
-
 	return (
 		<RandomGameStyles>
 			<NavBar />
-			<Heading />
 			{loading ? (
 				<Spinner loading={loading} />
 			) : (
@@ -85,42 +87,7 @@ const RandomGame = props => {
 						</Link>
 					</div>
 					<Form platform={platformId} />
-					<div className="main-game-content">
-						<div className="nes-container with-title is-rounded is-centered">
-							<div className="title-area">
-								<h1>{data.name}</h1>
-								<div className="loved-box">
-									<div className="vote-icons">
-										{loved ? (
-											<i onClick={() => toggleHeart()} class="nes-icon is-large heart" />
-										) : (
-											<i onClick={() => toggleHeart()} class="nes-icon is-large heart is-empty" />
-										)}
-									</div>
-									<p>IGDB Rating: {Math.floor(data.rating)}%</p>
-								</div>
-							</div>
-							<div className="top-splash">
-								<div className="nes-container is-dark is-rounded">
-									{data.cover ? (
-										<img
-											src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${
-												data.cover.image_id
-											}.jpg`}
-											alt={data.cover.image_id}
-										/>
-									) : (
-										<img src={ImagePlaceHolder} alt="No Image Found" />
-									)}
-								</div>
-								<div className="nes-container is-dark is-rounded with-title summary-box">
-									<p className="title">Summary</p>
-									{data.summary ? <p>{data.summary}</p> : <p>No Summary Found</p>}
-								</div>
-							</div>
-							{data.screenshots && <Carousel pictures={data.screenshots} />}
-						</div>
-					</div>
+					<IndividualGame data={data} platformId={platformId} />
 				</>
 			)}
 		</RandomGameStyles>
