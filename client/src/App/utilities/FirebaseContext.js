@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import firebase from 'firebase';
+import PropTypes from 'prop-types';
 
 export const FirebaseContext = React.createContext();
 
@@ -68,7 +69,7 @@ const FirebaseProvider = props => {
   });
 
   const handleGameSave = async (userId, gameId, name, platform) => {
-    const like = await db
+    await db
       .collection('votes')
       .add({
         userId,
@@ -89,7 +90,7 @@ const FirebaseProvider = props => {
   };
 
   const handleGameUnsave = async (userId, gameId) => {
-    const deleteLike = await db
+    await db
       .collection('votes')
       .where('userId', '==', userId)
       .where('gameId', '==', gameId)
@@ -106,7 +107,7 @@ const FirebaseProvider = props => {
 
   const checkGameSave = async (userId, gameId) => {
     setLiked(false);
-    const saveCheck = await db
+    await db
       .collection('votes')
       .where('userId', '==', userId)
       .where('gameId', '==', gameId)
@@ -126,7 +127,7 @@ const FirebaseProvider = props => {
 
   const checkSavedUserGames = async userId => {
     const tempSavedGames = [];
-    const response = await db
+    await db
       .collection('votes')
       .where('userId', '==', userId)
       .get()
@@ -173,6 +174,10 @@ const FirebaseProvider = props => {
       {props.children}
     </FirebaseContext.Provider>
   );
+};
+
+FirebaseProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default FirebaseProvider;

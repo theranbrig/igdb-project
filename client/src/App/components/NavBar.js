@@ -8,6 +8,17 @@ const NavStyles = styled.div`
   flex-direction: row;
   justify-content: space-between;
   height: 100px;
+  @media (max-width: 700px) {
+    height: 120px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    button {
+      font-size: 0.6rem;
+    }
+  }
   .nav-logo,
   .nav-links {
     display: inline-flex;
@@ -47,19 +58,27 @@ const NavBar = () => {
       </div>
       <div className="nav-links">
         <Link to={{ pathname: '/random', query: { platform: 18 } }}>
-          <button className="nes-btn is-success">Random Game</button>
+          <button type="button" className="nes-btn is-success">
+            Random Game
+          </button>
         </Link>
         {authUser ? (
           <Link to="/mypage">
-            <button className="nes-btn is-primary">My Saved Games</button>
+            <button type="button" className="nes-btn is-primary">
+              My Saved Games
+            </button>
           </Link>
         ) : (
           <>
             <Link to="/signup">
-              <button className="nes-btn is-primary">Sign Up</button>
+              <button type="button" className="nes-btn is-primary">
+                Sign Up
+              </button>
             </Link>
             <Link to="/login">
-              <button className="nes-btn is-primary">Login</button>
+              <button type="button" className="nes-btn is-primary">
+                Login
+              </button>
             </Link>
           </>
         )}

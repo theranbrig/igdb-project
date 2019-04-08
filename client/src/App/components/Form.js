@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const FormStyles = styled.div`
   width: 90%;
@@ -35,13 +36,10 @@ const Form = props => {
             required
             id="platform"
             name="platform"
-            value={platform}
             onChange={platform => changePlatform(platform)}
+            defaultValue={platform}
           >
-            >
-            <option selected="selected" value="18">
-              Nintendo
-            </option>
+            <option value="18">Nintendo</option>
             <option value="19">Super Nintendo</option>
             <option value="4">N64</option>
             <option value="21">Game Cube</option>
@@ -55,6 +53,10 @@ const Form = props => {
       </form>
     </FormStyles>
   );
+};
+
+Form.propTypes = {
+  platform: PropTypes.number,
 };
 
 export default Form;

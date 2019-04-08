@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { FirebaseContext } from '../utilities/FirebaseContext';
 
@@ -78,6 +78,9 @@ const SignUpForm = () => {
         <button className="nes-btn is-primary" type="submit">
           Sign Up
         </button>
+        <Link to="/login">
+          <p className="nes-text is-primary">Already a Member? Login Today.</p>
+        </Link>
         {error && <p>{error}</p>}
       </form>
     </SignUpFormStyles>

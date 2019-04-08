@@ -5,13 +5,15 @@ import Heading from '../components/Heading';
 import NavBar from '../components/NavBar';
 
 const MainStyles = styled.div`
+width: 90%;
+margin: 0 auto;
 	.App {
-		margin: 20px;
+		margin: 10px 20px;
 		min-height: 80vh;
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr;
-		min-height: 80vh;
+		min-height: 70vh;
 		align-items: center;
 		justify-items: center;
 		margin: 10vh auto;
@@ -25,7 +27,10 @@ const MainStyles = styled.div`
 		padding: 15px 0 0;
 		font-family: 'Press Start 2p';
 		font-size: 5rem;
-		text-align: center;
+    text-align: center;
+    @media (max-width: 900px) {
+      font-size: 2rem;
+    }
 	}
 	p, li {
 		font-family: 'Press Start 2p';
@@ -36,6 +41,9 @@ const MainStyles = styled.div`
   ul {
     width: 80%;
     list-style-type: none;
+    padding: 0;
+    @media (max-width: 700px) {
+    }
   }
 	.loading-screen {
 		display: grid;
@@ -50,10 +58,7 @@ const MainStyles = styled.div`
 		margin: 30px;
 		i {
 			margin: 20px !important;
-		}import Heading from './Heading';
-import NavBar from '../components/NavBar';
-
-	}
+		}
 `;
 
 const Home = () => (

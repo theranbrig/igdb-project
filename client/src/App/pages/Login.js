@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import NavBar from '../components/NavBar';
 import { FirebaseContext } from '../utilities/FirebaseContext';
 import Spinner from '../components/Spinner';
@@ -80,10 +81,18 @@ const SignUpForm = ({ history }) => {
           <button className="nes-btn is-primary" type="submit" disabled={email === '' && password}>
             Sign Up
           </button>
+          <Link to="/signup">
+            <p className="nes-text is-primary">Not yet a member? Sign Up Today.</p>
+          </Link>
+          {error && <p>{error}</p>}
         </form>
       )}
     </SignUpFormStyles>
   );
+};
+
+SignUpForm.propTypes = {
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(SignUpForm);

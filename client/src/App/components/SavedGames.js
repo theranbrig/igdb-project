@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FirebaseContext } from '../utilities/FirebaseContext';
 import GameList from './GameList';
 import Spinner from './Spinner';
@@ -14,6 +15,10 @@ const GameListStyles = styled.div`
     font-family: 'Press Start 2p';
     width: 90%;
     margin-left: 5%;
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
   }
   .game-list {
     text-align: center;
@@ -29,6 +34,9 @@ const GameListStyles = styled.div`
     font-family: 'Press Start 2p';
     text-align: center;
     padding: 50px 0;
+    @media (max-width: 700px) {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -80,6 +88,11 @@ const SavedGames = ({ userId, user }) => {
       )}
     </GameListStyles>
   );
+};
+
+SavedGames.propTypes = {
+  userId: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
 };
 
 export default SavedGames;
