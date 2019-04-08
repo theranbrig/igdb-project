@@ -72,12 +72,9 @@ const RandomGameStyles = styled.div`
   }
 `;
 
-const RandomGame = props => {
-  let platformId = 18;
-  if (props.history.location.query) {
-    platformId = props.history.location.query.platform;
-  }
-  const [data, loading] = useFetch(`/api/random?platform=${platformId}`);
+const Game = props => {
+  const { gameId, platform } = props.match.params;
+  const [data, loading] = useFetch(`/api/game/${gameId}/${platform}`);
 
   return (
     <RandomGameStyles>
@@ -87,18 +84,18 @@ const RandomGame = props => {
       ) : (
         <>
           <div className="back-link">
-            <Link to={{ pathname: '/' }}>
+            <Link to={{ pathname: '/mypage' }}>
               <button type="button" className="nes-btn is-error">
                 Back
               </button>
             </Link>
           </div>
-          <Form platform={platformId} />
-          <IndividualGame data={data} platformId={platformId} />
+          <Form platform={platform} />
+          <IndividualGame data={data} platformId={platform} />
         </>
       )}
     </RandomGameStyles>
   );
 };
 
-export default RandomGame;
+export default Game;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FirebaseContext } from '../utlities/FirebaseContext';
+import { FirebaseContext } from '../utilities/FirebaseContext';
 
 const NavStyles = styled.div`
   display: flex;

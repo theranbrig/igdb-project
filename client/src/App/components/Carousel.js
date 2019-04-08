@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-const Carousel = props => {
+const Carousel = ({ pictures }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -28,7 +28,7 @@ const Carousel = props => {
     <div className="nes-container with-title is-dark is-centered is-rounded">
       <p className="title">Screenshots</p>
       <Slider {...settings}>
-        {props.pictures.map(picture => (
+        {pictures.map(picture => (
           <img
             src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${picture.image_id}.jpg`}
             alt={picture.image_id}

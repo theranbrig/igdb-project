@@ -27,7 +27,9 @@ const Form = props => {
   return (
     <FormStyles>
       <form>
-        <label htmlFor="platform">Platform Type</label>
+        <label htmlFor="platform" className="nes-text is-primary">
+          Choose Your Platform Type
+        </label>
         <div className="nes-select">
           <select
             required
@@ -46,7 +48,9 @@ const Form = props => {
           </select>
         </div>
         <Link to={{ pathname: '/random', query: { platform } }}>
-          <button className="nes-btn is-success">Random Game</button>
+          <button type="button" className="nes-btn is-success">
+            Random Game
+          </button>
         </Link>
       </form>
     </FormStyles>

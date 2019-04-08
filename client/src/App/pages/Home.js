@@ -27,9 +27,16 @@ const MainStyles = styled.div`
 		font-size: 5rem;
 		text-align: center;
 	}
-	p {
+	p, li {
 		font-family: 'Press Start 2p';
 	}
+  li {
+    padding: 10px;
+  }
+  ul {
+    width: 80%;
+    list-style-type: none;
+  }
 	.loading-screen {
 		display: grid;
 		grid-template-rows: 1fr;
@@ -54,6 +61,11 @@ const Home = () => (
     <NavBar />
     <div className="App nes-container is-dark is-rounded">
       <Heading />
+      <ul>
+        <li>Click to get a random Nintendo game from your desired platform and learn more about it.</li>
+        <li>Sign Up and Login to save your games for later viewing</li>
+        <li>Click the heart icon to save your favorite games.</li>
+      </ul>
       <Form />
       <section className="icon-list">
         <i className="nes-ash" />

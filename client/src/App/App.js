@@ -6,7 +6,8 @@ import Main from './pages/RandomGame';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import FirebaseProvider from './utlities/FirebaseContext';
+import FirebaseProvider from './utilities/FirebaseContext';
+import Game from './pages/Game';
 
 const Routes = () => (
   <div>
@@ -15,6 +16,11 @@ const Routes = () => (
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/mypage" component={Account} />
+      <Route
+        exact
+        path="/game/:gameId/:platform"
+        component={props => <Game timestamp={new Date().toString()} {...props} />}
+      />
       <Route path="/random" component={props => <Main timestamp={new Date().toString()} {...props} />} />
     </Switch>
   </div>

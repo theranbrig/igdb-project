@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import { FirebaseContext } from '../utlities/FirebaseContext';
+import { FirebaseContext } from '../utilities/FirebaseContext';
 
 const SignUpFormStyles = styled.div`
   text-align: center;

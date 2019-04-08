@@ -1,28 +1,32 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 import LogoutButton from '../components/LogoutButton';
 import NavBar from '../components/NavBar';
-import { FirebaseContext } from '../utlities/FirebaseContext';
+import { FirebaseContext } from '../utilities/FirebaseContext';
 import Spinner from '../components/Spinner';
 import SavedGames from '../components/SavedGames';
 
-const Account = () => {
-	const { authUser, loading } = useContext(FirebaseContext);
+const AccountStyles = styled.div`
+  text-align: center;
+`;
 
-	return (
-		<>
-			<NavBar />
-			{loading ? (
-				<Spinner loading={loading} />
-			) : (
-				authUser && (
-					<>
-						<SavedGames userId={authUser.uid} user={authUser.email} />
-						<LogoutButton />
-					</>
-				)
-			)}
-		</>
-	);
+const Account = () => {
+  const { authUser, loading } = useContext(FirebaseContext);
+  return (
+    <AccountStyles>
+      <NavBar />
+      {loading ? (
+        <Spinner loading={loading} />
+      ) : (
+        authUser && (
+          <>
+            <SavedGames userId={authUser.uid} user={authUser.email} />
+            <LogoutButton />
+          </>
+        )
+      )}
+    </AccountStyles>
+  );
 };
 
 export default Account;
