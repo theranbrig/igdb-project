@@ -4,7 +4,11 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const apicalypse = require('apicalypse').default;
 const bodyParser = require('body-parser');
+var cors = require('cors');
+
 dotenv.config();
+
+app.use(cors());
 
 const app = express();
 
