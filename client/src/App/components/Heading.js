@@ -1,17 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const HeadingStyles = styled.div`
-  h1 {
-    padding: 15px 0 0;
-    font-size: 4rem;
-    text-align: center;
-    font-family: 'Press Start 2p';
-    i {
-      font-size: 2rem;
-    }
-  }
-`;
+import { HeadingStyles } from '../styles/MainStyles';
 
 const Heading = () => (
   <HeadingStyles>

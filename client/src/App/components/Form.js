@@ -1,22 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-const FormStyles = styled.div`
-  width: 90%;
-  margin: 0 auto;
-  label,
-  input,
-  button,
-  select,
-  option {
-    font-family: 'Press Start 2p';
-  }
-  button {
-    margin-top: 10px;
-  }
-`;
+import { PlatformFormStyles } from '../styles/FormStyles';
 
 const Form = props => {
   const [platform, setPlatform] = useState(props.platform || '');
@@ -26,7 +11,7 @@ const Form = props => {
   };
 
   return (
-    <FormStyles>
+    <PlatformFormStyles>
       <form>
         <label htmlFor="platform" className="nes-text is-primary">
           Choose Your Platform Type
@@ -36,6 +21,7 @@ const Form = props => {
             required
             id="platform"
             name="platform"
+            // eslint-disable-next-line no-shadow
             onChange={platform => changePlatform(platform)}
             defaultValue={platform}
           >
@@ -51,12 +37,12 @@ const Form = props => {
           </button>
         </Link>
       </form>
-    </FormStyles>
+    </PlatformFormStyles>
   );
 };
 
 Form.propTypes = {
-  platform: PropTypes.number,
+  platform: PropTypes.number.isRequired,
 };
 
 export default Form;

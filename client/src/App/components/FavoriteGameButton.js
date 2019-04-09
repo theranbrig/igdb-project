@@ -1,17 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FirebaseContext } from '../utilities/FirebaseContext';
+import { FavoriteButtonStyles } from '../styles/GamePageStyles';
 
-const FavoriteButtonStyles = styled.div`
-  button {
-    border: none;
-    &:hover {
-      transform: scale(1.25, 1.25);
-    }
-  }
-`;
-
-const FavoriteGameButton = ({ gameId, name, platformId, likedId }) => {
+const FavoriteGameButton = ({ gameId, name, platformId }) => {
   const { handleGameSave, authUser, liked, setLiked, handleGameUnsave } = useContext(FirebaseContext);
 
   return (
@@ -23,7 +16,10 @@ const FavoriteGameButton = ({ gameId, name, platformId, likedId }) => {
             await handleGameUnsave(authUser.uid, gameId);
             setLiked(false);
           }}
-          onKeyPress={() => setLiked(false)}
+          onKeyPress={async () => {
+            await handleGameUnsave(authUser.uid, gameId);
+            setLiked(false);
+          }}
         >
           <i className="nes-icon is-large heart" />
         </button>
@@ -34,13 +30,22 @@ const FavoriteGameButton = ({ gameId, name, platformId, likedId }) => {
             await handleGameSave(authUser.uid, gameId, name, parseInt(platformId));
             setLiked(true);
           }}
-          onKeyPress={() => setLiked(true)}
+          onKeyPress={async () => {
+            await handleGameSave(authUser.uid, gameId, name, parseInt(platformId));
+            setLiked(true);
+          }}
         >
           <i className="nes-icon is-large heart is-empty" />
         </button>
       )}
     </FavoriteButtonStyles>
   );
+};
+
+FavoriteGameButton.propTypes = {
+  gameId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  platformId: PropTypes.string.isRequired,
 };
 
 export default FavoriteGameButton;

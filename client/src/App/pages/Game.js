@@ -1,24 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useFetch } from '../utilities/hooks';
 import Form from '../components/Form';
 import Spinner from '../components/Spinner';
 import NavBar from '../components/NavBar';
 import IndividualGame from '../components/IndividualGame';
-
-const GamePageStyles = styled.div`
-  .back-link {
-    margin-left: 5%;
-    margin-bottom: 10px;
-  }
-
-  button {
-    font-family: 'Press Start 2p';
-    text-decoration: none;
-  }
-`;
+import { GamePageStyles } from '../styles/GamePageStyles';
 
 const Game = props => {
   const { gameId, platform } = props.match.params;

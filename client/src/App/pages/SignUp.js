@@ -1,35 +1,9 @@
 import React, { useState, useContext } from 'react';
-import styled from 'styled-components';
 import { withRouter, Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { FirebaseContext } from '../utilities/FirebaseContext';
-
-const SignUpFormStyles = styled.div`
-  text-align: center;
-  label,
-  input,
-  button,
-  select,
-  option,
-  h1,
-  p {
-    font-family: 'Press Start 2p';
-  }
-  label {
-    width: 100%;
-  }
-
-  input {
-    margin-top: 10px;
-  }
-  form {
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 50%;
-    grid-gap: 20px;
-  }
-`;
+import Heading from '../components/Heading';
+import { UserFormStyles } from '../styles/FormStyles';
 
 const SignUpForm = () => {
   const [email, setEmail] = useState('');
@@ -38,8 +12,9 @@ const SignUpForm = () => {
   const { handleSignUp, error } = useContext(FirebaseContext);
 
   return (
-    <SignUpFormStyles>
+    <UserFormStyles>
       <NavBar />
+      <Heading />
       <h1>Sign Up Today</h1>
       <form
         onSubmit={async e => {
@@ -83,7 +58,7 @@ const SignUpForm = () => {
         </Link>
         {error && <p>{error}</p>}
       </form>
-    </SignUpFormStyles>
+    </UserFormStyles>
   );
 };
 

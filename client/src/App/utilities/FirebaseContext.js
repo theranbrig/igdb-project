@@ -22,8 +22,6 @@ const FirebaseProvider = props => {
   const [liked, setLiked] = useState(false);
   const [savedGames, setSavedGames] = useState([]);
   const [likedGame, setLikedGame] = useState(null);
-  const [gameParam, setGameParam] = useState(null);
-  const [platformParam, setPlatformParam] = useState(null);
 
   const db = firebase.firestore();
 
@@ -68,6 +66,26 @@ const FirebaseProvider = props => {
     }
   });
 
+  const checkGameSave = async (userId, gameId) => {
+    setLiked(false);
+    await db
+      .collection('votes')
+      .where('userId', '==', userId)
+      .where('gameId', '==', gameId)
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          if (doc.data()) {
+            setLiked(true);
+            setLikedGame(doc.data().likeId);
+          }
+        });
+      })
+      .catch(function(error) {
+        console.log('Error getting documents: ', error);
+      });
+  };
+
   const handleGameSave = async (userId, gameId, name, platform) => {
     await db
       .collection('votes')
@@ -78,10 +96,6 @@ const FirebaseProvider = props => {
         platform,
       })
       .then(async function(docRef) {
-        await db
-          .collection('votes')
-          .doc(docRef.id)
-          .update({ likeId: docRef.id });
         await checkGameSave(userId, docRef.id);
       })
       .catch(function(error) {
@@ -98,26 +112,6 @@ const FirebaseProvider = props => {
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           doc.ref.delete();
-        });
-      })
-      .catch(function(error) {
-        console.log('Error getting documents: ', error);
-      });
-  };
-
-  const checkGameSave = async (userId, gameId) => {
-    setLiked(false);
-    await db
-      .collection('votes')
-      .where('userId', '==', userId)
-      .where('gameId', '==', gameId)
-      .get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          if (doc.data()) {
-            setLiked(true);
-            setLikedGame(doc.data().likeId);
-          }
         });
       })
       .catch(function(error) {
@@ -144,12 +138,6 @@ const FirebaseProvider = props => {
     setSavedGames(tempSavedGames);
   };
 
-  const handleQueryParameters = (gameId, platformId) => {
-    setGameParam(gameId);
-    setPlatformParam(platformId);
-    console.log(gameParam, platformParam);
-  };
-
   return (
     <FirebaseContext.Provider
       value={{
@@ -158,7 +146,6 @@ const FirebaseProvider = props => {
         handleSignUp,
         handleSignIn,
         handleLogout,
-        handleQueryParameters,
         loading,
         handleGameSave,
         checkGameSave,

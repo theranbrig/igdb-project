@@ -1,7 +1,10 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import Slider from 'react-slick';
+import PropTypes from 'prop-types';
 
 const Carousel = ({ pictures }) => {
+  // React Slick Slider Carousel Settings
   const settings = {
     dots: true,
     infinite: true,
@@ -38,6 +41,10 @@ const Carousel = ({ pictures }) => {
       </Slider>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  pictures: PropTypes.array.isRequired,
 };
 
 export default Carousel;

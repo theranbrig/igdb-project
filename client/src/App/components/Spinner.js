@@ -1,21 +1,7 @@
 import React from 'react';
 import { PacmanLoader } from 'react-spinners';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-const LoadingStyles = styled.div`
-  .loading-screen {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    min-height: 80vh;
-    align-items: center;
-    justify-items: center;
-    width: 90%;
-    margin-left: 5%;
-    border: 3px solid #ffff00;
-  }
-`;
+import { LoadingStyles } from '../styles/MainStyles';
 
 const Spinner = ({ loading }) => (
   <LoadingStyles>

@@ -1,37 +1,11 @@
 import React, { useState, useContext } from 'react';
-import styled from 'styled-components';
 import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NavBar from '../components/NavBar';
 import { FirebaseContext } from '../utilities/FirebaseContext';
 import Spinner from '../components/Spinner';
-
-const SignUpFormStyles = styled.div`
-  text-align: center;
-  label,
-  input,
-  button,
-  select,
-  option,
-  h1,
-  p {
-    font-family: 'Press Start 2p';
-  }
-  label {
-    width: 100%;
-  }
-
-  input {
-    margin-top: 10px;
-  }
-  form {
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 50%;
-    grid-gap: 20px;
-  }
-`;
+import Heading from '../components/Heading';
+import { UserFormStyles } from '../styles/FormStyles';
 
 const SignUpForm = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -40,8 +14,9 @@ const SignUpForm = ({ history }) => {
   const { handleSignIn, error, loading } = useContext(FirebaseContext);
 
   return (
-    <SignUpFormStyles>
+    <UserFormStyles>
       <NavBar />
+      <Heading />
       <h1>Login</h1>
       {loading ? (
         <Spinner loading={loading} />
@@ -87,7 +62,7 @@ const SignUpForm = ({ history }) => {
           {error && <p>{error}</p>}
         </form>
       )}
-    </SignUpFormStyles>
+    </UserFormStyles>
   );
 };
 
