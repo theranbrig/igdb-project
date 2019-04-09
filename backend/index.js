@@ -13,8 +13,22 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Serve the static files from the React app
+//Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
+
+//production mode
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, 'client/build')));
+	//
+	app.get('*', (req, res) => {
+		res.sendfile(path.join((__dirname = 'client/build/index.html')));
+	});
+}
+
+//build mode
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/client/public/index.html'));
+});
 
 const requestOptions = {
 	method: 'GET',
@@ -30,7 +44,6 @@ const gameRequest =
 app.get('/api/random', cors(), async (req, res) => {
 	const platform = req.query.platform || 18;
 	const randomRating = Math.floor(Math.random() * 100);
-
 	try {
 		const response = await apicalypse(requestOptions)
 			.fields(gameRequest)
