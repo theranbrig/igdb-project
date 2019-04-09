@@ -2,6 +2,7 @@
 
 exports[`renders the gameList item 1`] = `
 <div
+<<<<<<< HEAD
   className="game-link"
 >
   <a
@@ -23,6 +24,11 @@ exports[`renders the saved games component 1`] = `
 >
   <h1>
     fake@fake.com
+=======
+  className="sc-EHOje kaDGtO"
+>
+  <h1>
+>>>>>>> d6254eeabc601f61666a349ccec4f094319235ca
     's List of Games
   </h1>
   <div

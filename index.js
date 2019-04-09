@@ -4,6 +4,8 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 const apicalypse = require('apicalypse').default;
 const bodyParser = require('body-parser');
+var cors = require('cors');
+
 dotenv.config();
 
 const app = express();
@@ -24,22 +26,6 @@ const requestOptions = {
 const gameRequest =
 	'name,summary,platforms.name,genres.name,involved_companies.company.name,cover.image_id,release_dates.y,screenshots.image_id,rating';
 
-// API First Test Route
-// app.get('/api/igdb', async (req, res) => {
-// 	try {
-// 		const response = await apicalypse(requestOptions)
-// 			.fields(
-// 				'name,summary,franchise,platforms.name,platforms.platform_logo.image_id,genres.name,cover.image_id,release_dates.y,screenshots.image_id,rating'
-// 			)
-// 			.limit(40)
-// 			.where(['rating > 70', 'platforms = (18)'])
-// 			.request('/games');
-// 		res.json(response.data);
-// 	} catch (err) {
-// 		console.error(err);
-// 	}
-// });
-
 // Random Game Route
 app.get('/api/random', async (req, res) => {
 	const platform = req.query.platform || 18;
@@ -54,8 +40,7 @@ app.get('/api/random', async (req, res) => {
 		const randomGameIndex = Math.floor(Math.random() * response.data.length);
 		if (!response.data) {
 			res.send('Oops! No Game Found.  Please Go Back');
-    }
-    console.log(response.data[randomGameIndex])
+		}
 		res.json(response.data[randomGameIndex]);
 	} catch (err) {
 		res.send('Oops! Something went wrong.');

@@ -139,21 +139,21 @@ const FirebaseProvider = props => {
   return (
     <FirebaseContext.Provider
       value={{
-        error,
         authUser,
-        handleSignUp,
-        handleSignIn,
-        handleLogout,
-        loading,
-        handleGameSave,
         checkGameSave,
         checkSavedUserGames,
-        liked,
-        savedGames,
-        setLoading,
-        likedGame,
+        error,
+        handleGameSave,
         handleGameUnsave,
+        handleLogout,
+        handleSignIn,
+        handleSignUp,
+        liked,
+        likedGame,
+        loading,
+        savedGames,
         setLiked,
+        setLoading,
       }}
     >
       {props.children}
