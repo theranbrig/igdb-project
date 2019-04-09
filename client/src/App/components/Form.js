@@ -42,7 +42,8 @@ const Form = props => {
 };
 
 Form.propTypes = {
-  platform: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  platform: PropTypes.number,
 };
 
 export default Form;

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FirebaseContext } from '../utilities/FirebaseContext';
 import { FavoriteButtonStyles } from '../styles/GamePageStyles';
@@ -43,7 +42,7 @@ const FavoriteGameButton = ({ gameId, name, platformId }) => {
 };
 
 FavoriteGameButton.propTypes = {
-  gameId: PropTypes.string.isRequired,
+  gameId: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   platformId: PropTypes.string.isRequired,
 };

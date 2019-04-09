@@ -61,8 +61,6 @@ const FirebaseProvider = props => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       setAuthUser(user);
-    } else {
-      console.log('No User Found');
     }
   });
 
