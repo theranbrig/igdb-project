@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the gameList item 1`] = `
+<div
+  className="sc-EHOje kaDGtO"
+>
+  <h1>
+    's List of Games
+  </h1>
+  <div
+    className="games-list"
+  >
+    <div
+      className="game-list nes-container is-rounded"
+    >
+      <h2>
+        NES Games
+      </h2>
+      <div
+        className="game-link"
+      >
+        <a
+          href="/game/79335/18"
+          onClick={[Function]}
+        >
+          <p
+            className="nes-text is-primary"
+          >
+            Double Dragon III: The Sacred Stones
+          </p>
+        </a>
+      </div>
+    </div>
+    <div
+      className="game-list nes-container is-rounded"
+    >
+      <h2>
+        SNES Games
+      </h2>
+    </div>
+    <div
+      className="game-list nes-container is-rounded"
+    >
+      <h2>
+        64 Games
+      </h2>
+    </div>
+    <div
+      className="game-list nes-container is-rounded"
+    >
+      <h2>
+        Game Cube Games
+      </h2>
+    </div>
+  </div>
+</div>
+`;

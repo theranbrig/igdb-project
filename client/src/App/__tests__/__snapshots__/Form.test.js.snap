@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the login form correctly 1`] = `
+<div
+  className="sc-ifAKCX jEbIyP"
+>
+  <div
+    className="sc-htpNat jdiiWr"
+  >
+    <div
+      className="nav-logo"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <i
+          className="nes-logo"
+        />
+        <p>
+          NintenDB
+        </p>
+      </a>
+    </div>
+    <div
+      className="nav-links"
+    >
+      <a
+        href="/random"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-success"
+          type="button"
+        >
+          Random Game
+        </button>
+      </a>
+      <a
+        href="/signup"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-primary"
+          type="button"
+        >
+          Sign Up
+        </button>
+      </a>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-primary"
+          type="button"
+        >
+          Login
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="sc-bxivhb bbnBSQ"
+  >
+    <h1>
+      <i
+        className="nes-icon nes-mario is-small"
+      />
+       NintenDB 
+      <i
+        className="nes-icon nes-kirby is-small"
+      />
+    </h1>
+  </div>
+  <h1>
+    Login
+  </h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Email
+      <input
+        autoComplete="email"
+        className="nes-input"
+        onChange={[Function]}
+        placeholder="Enter Email"
+        type="text"
+        value=""
+      />
+    </label>
+    <label>
+      Password
+      <input
+        autoComplete="password"
+        className="nes-input"
+        onChange={[Function]}
+        placeholder="Enter Password"
+        type="password"
+        value=""
+      />
+    </label>
+    <button
+      className="nes-btn is-primary"
+      disabled=""
+      type="submit"
+    >
+      Sign Up
+    </button>
+    <a
+      href="/signup"
+      onClick={[Function]}
+    >
+      <p
+        className="nes-text is-primary"
+      >
+        Not yet a member? Sign Up Today.
+      </p>
+    </a>
+  </form>
+</div>
+`;
+
+exports[`renders the platfrom form correctly 1`] = `
+<div
+  className="sc-EHOje bCUIMy"
+>
+  <form>
+    <label
+      className="nes-text is-primary"
+      htmlFor="platform"
+    >
+      Choose Your Platform Type
+    </label>
+    <div
+      className="nes-select"
+    >
+      <select
+        defaultValue=""
+        id="platform"
+        name="platform"
+        onChange={[Function]}
+        required={true}
+      >
+        <option
+          value="18"
+        >
+          Nintendo
+        </option>
+        <option
+          value="19"
+        >
+          Super Nintendo
+        </option>
+        <option
+          value="4"
+        >
+          N64
+        </option>
+        <option
+          value="21"
+        >
+          Game Cube
+        </option>
+      </select>
+    </div>
+    <a
+      href="/random"
+      onClick={[Function]}
+    >
+      <button
+        className="nes-btn is-success"
+        type="button"
+      >
+        Random Game
+      </button>
+    </a>
+  </form>
+</div>
+`;
+
+exports[`renders the signup form correctly 1`] = `
+<div
+  className="sc-ifAKCX jEbIyP"
+>
+  <div
+    className="sc-htpNat jdiiWr"
+  >
+    <div
+      className="nav-logo"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <i
+          className="nes-logo"
+        />
+        <p>
+          NintenDB
+        </p>
+      </a>
+    </div>
+    <div
+      className="nav-links"
+    >
+      <a
+        href="/random"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-success"
+          type="button"
+        >
+          Random Game
+        </button>
+      </a>
+      <a
+        href="/signup"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-primary"
+          type="button"
+        >
+          Sign Up
+        </button>
+      </a>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        <button
+          className="nes-btn is-primary"
+          type="button"
+        >
+          Login
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="sc-bxivhb bbnBSQ"
+  >
+    <h1>
+      <i
+        className="nes-icon nes-mario is-small"
+      />
+       NintenDB 
+      <i
+        className="nes-icon nes-kirby is-small"
+      />
+    </h1>
+  </div>
+  <h1>
+    Sign Up Today
+  </h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="nes-field"
+    >
+      <label>
+        Email
+        <input
+          autoComplete="email"
+          className="nes-input"
+          id="email"
+          onChange={[Function]}
+          placeholder="Enter Email"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="nes-field"
+    >
+      <label>
+        Password
+        <input
+          autoComplete="password"
+          className="nes-input"
+          id="password"
+          onChange={[Function]}
+          placeholder="Enter Password"
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <button
+      className="nes-btn is-primary"
+      type="submit"
+    >
+      Sign Up
+    </button>
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      <p
+        className="nes-text is-primary"
+      >
+        Already a Member? Login Today.
+      </p>
+    </a>
+  </form>
+</div>
+`;
