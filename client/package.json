@@ -16,7 +16,7 @@
 		"styled-components": "^4.2.0"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "react-scripts start --env-file ../.env",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -35,5 +35,5 @@
 		"enzyme": "^3.9.0",
 		"enzyme-adapter-react-16": "^1.12.1",
 		"react-test-renderer": "^16.8.6"
-  }
+	}
 }
