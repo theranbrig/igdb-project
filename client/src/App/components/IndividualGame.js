@@ -28,7 +28,6 @@ const IndividualGame = ({ data, platformId }) => {
 		genres,
 		involved_companies
 	} = data;
-	const filteredCompanies = [...new Set(involved_companies)];
 	return (
 		<GameStyles>
 			<div className="main-game-content">
@@ -79,8 +78,8 @@ const IndividualGame = ({ data, platformId }) => {
 							</ul>
 							<ul className="companies nes-list is-circle">
 								<h3>Created By</h3>
-								{filteredCompanies &&
-									filteredCompanies.map(company => (
+								{involved_companies &&
+									involved_companies.map(company => (
 										<li key={company.company.id}>{company.company.name}</li>
 									))}
 							</ul>
@@ -94,7 +93,7 @@ const IndividualGame = ({ data, platformId }) => {
 
 IndividualGame.propTypes = {
 	data: PropTypes.object.isRequired,
-	platformId: PropTypes.number.isRequired
+	platformId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default IndividualGame;
