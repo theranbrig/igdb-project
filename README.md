@@ -17,7 +17,7 @@ All React files are found in `client/src/App`.
 - **Email** - user@email.com
 - **Password** - password
 
-Feel free to add or subtract games to play around with it a bit.
+Feel free to add or subtract games to play around with it a bit.  Also feel free to sign up for your own account.
 
 ## SUMMARY AND BUILD PROCESS
 
