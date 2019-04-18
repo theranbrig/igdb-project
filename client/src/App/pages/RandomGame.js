@@ -9,38 +9,36 @@ import IndividualGame from '../components/IndividualGame';
 import { GamePageStyles } from '../styles/GamePageStyles';
 
 const RandomGame = props => {
-	let platformId = 18;
-	if (props.history.location.query) {
-		platformId = props.history.location.query.platform;
-	}
-	const [data, loading] = useFetch(
-		`https://nintendb.herokuapp.com/api/random?platform=${platformId}`
-	);
+  let platformId = 18;
+  if (props.history.location.query) {
+    platformId = props.history.location.query.platform;
+  }
+  const [data, loading] = useFetch(`https://nintendb.herokuapp.com/api/random?platform=${platformId}`);
 
-	return (
-		<GamePageStyles>
-			<NavBar />
-			{loading ? (
-				<Spinner loading={loading} />
-			) : (
-				<>
-					<div className="back-link">
-						<Link to={{ pathname: '/' }}>
-							<button type="button" className="nes-btn is-error">
-								Back
-							</button>
-						</Link>
-					</div>
-					<Form platform={platformId} />
-					<IndividualGame data={data} platformId={platformId} />
-				</>
-			)}
-		</GamePageStyles>
-	);
+  return (
+    <GamePageStyles>
+      <NavBar />
+      {loading ? (
+        <Spinner loading={loading} />
+      ) : (
+        <>
+          <div className="back-link">
+            <Link to={{ pathname: '/' }}>
+              <button type="button" className="nes-btn is-error">
+                Back
+              </button>
+            </Link>
+          </div>
+          <Form platform={platformId} />
+          <IndividualGame data={data} platformId={platformId} />
+        </>
+      )}
+    </GamePageStyles>
+  );
 };
 
 RandomGame.propTypes = {
-	history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 };
 
 export default RandomGame;

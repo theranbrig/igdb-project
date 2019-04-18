@@ -8,27 +8,27 @@ import SavedGames from '../components/SavedGames';
 import { AccountStyles } from '../styles/AccountStyles';
 
 const Account = ({ history }) => {
-	const { authUser, loading } = useContext(FirebaseContext);
-	return (
-		<AccountStyles>
-			<NavBar />
-			{!authUser && <p>You don't have an account. Please login in access your page.</p>}
-			{loading ? (
-				<Spinner loading={loading} />
-			) : (
-				authUser && (
-					<>
-						<SavedGames userId={authUser.uid} user={authUser.email} />
-						<LogoutButton history={history} />
-					</>
-				)
-			)}
-		</AccountStyles>
-	);
+  const { authUser, loading } = useContext(FirebaseContext);
+  return (
+    <AccountStyles>
+      <NavBar />
+      {!authUser && <p>You don't have an account. Please login in access your page.</p>}
+      {loading ? (
+        <Spinner loading={loading} />
+      ) : (
+        authUser && (
+          <>
+            <SavedGames userId={authUser.uid} user={authUser.email} />
+            <LogoutButton history={history} />
+          </>
+        )
+      )}
+    </AccountStyles>
+  );
 };
 
 Account.propTypes = {
-	history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 };
 
 export default Account;

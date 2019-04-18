@@ -19,7 +19,8 @@
 		"start": "react-scripts start --env-file ../.env",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"lint": "./node_modules/.bin/eslint **/*.{js,jsx} --quiet"
 	},
 	"proxy": "http://localhost:5000",
 	"eslintConfig": {
@@ -34,6 +35,9 @@
 	"devDependencies": {
 		"enzyme": "^3.9.0",
 		"enzyme-adapter-react-16": "^1.12.1",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-plugin-html": "^5.0.3",
+		"eslint-plugin-prettier": "^3.0.1",
 		"react-test-renderer": "^16.8.6"
 	}
 }

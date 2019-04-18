@@ -4,49 +4,45 @@ import PropTypes from 'prop-types';
 import { PlatformFormStyles } from '../styles/FormStyles';
 
 const Form = props => {
-	const [platform, setPlatform] = useState(props.platform || '');
+  const [platform, setPlatform] = useState(props.platform || '');
 
-	const changePlatform = e => {
-		setPlatform(e.target.value);
-	};
+  const changePlatform = e => {
+    setPlatform(e.target.value);
+  };
 
-	return (
-		<PlatformFormStyles>
-			<form>
-				<label htmlFor="platform" className="nes-text is-primary">
-					Choose Your Platform Type
-				</label>
-				<div className="nes-select">
-					<select
-						required
-						id="platform"
-						name="platform"
-						// eslint-disable-next-line no-shadow
-						onChange={platform => changePlatform(platform)}
-						defaultValue={platform}>
-						<option value="18">Nintendo</option>
-						<option value="19">Super Nintendo</option>
-						<option value="4">N64</option>
-						<option value="21">Game Cube</option>
-					</select>
-				</div>
-				<Link to={{ pathname: '/random', query: { platform } }}>
-					<button type="button" className="nes-btn is-success">
-						Random Game
-					</button>
-				</Link>
-			</form>
-		</PlatformFormStyles>
-	);
+  return (
+    <PlatformFormStyles>
+      <form>
+        <label htmlFor="platform" className="nes-text is-primary">
+          Choose Your Platform Type
+        </label>
+        <div className="nes-select">
+          <select
+            required
+            id="platform"
+            name="platform"
+            // eslint-disable-next-line no-shadow
+            onChange={platform => changePlatform(platform)}
+            defaultValue={platform}
+          >
+            <option value="18">Nintendo</option>
+            <option value="19">Super Nintendo</option>
+            <option value="4">N64</option>
+            <option value="21">Game Cube</option>
+          </select>
+        </div>
+        <Link to={{ pathname: '/random', query: { platform } }}>
+          <button type="button" className="nes-btn is-success">
+            Random Game
+          </button>
+        </Link>
+      </form>
+    </PlatformFormStyles>
+  );
 };
 
 Form.propTypes = {
-<<<<<<< HEAD
-	// eslint-disable-next-line react/require-default-props
-	platform: PropTypes.number
-=======
-	platform: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
->>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761
+  platform: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default Form;
