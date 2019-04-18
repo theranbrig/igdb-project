@@ -9,33 +9,33 @@ import IndividualGame from '../components/IndividualGame';
 import { GamePageStyles } from '../styles/GamePageStyles';
 
 const Game = props => {
-  const { gameId, platform } = props.match.params;
-  const [data, loading] = useFetch(`/api/game/${gameId}/${platform}`);
+	const { gameId, platform } = props.match.params;
+	const [data, loading] = useFetch(`https://nintendb.herokuapp.com/api/game/${gameId}/${platform}`);
 
-  return (
-    <GamePageStyles>
-      <NavBar />
-      {loading ? (
-        <Spinner loading={loading} />
-      ) : (
-        <>
-          <div className="back-link">
-            <Link to={{ pathname: '/mypage' }}>
-              <button type="button" className="nes-btn is-error">
-                Back
-              </button>
-            </Link>
-          </div>
-          <Form platform={platform} />
-          <IndividualGame data={data} platformId={platform} />
-        </>
-      )}
-    </GamePageStyles>
-  );
+	return (
+		<GamePageStyles>
+			<NavBar />
+			{loading ? (
+				<Spinner loading={loading} />
+			) : (
+				<>
+					<div className="back-link">
+						<Link to={{ pathname: '/mypage' }}>
+							<button type="button" className="nes-btn is-error">
+								Back
+							</button>
+						</Link>
+					</div>
+					<Form platform={platform} />
+					<IndividualGame data={data} platformId={platform} />
+				</>
+			)}
+		</GamePageStyles>
+	);
 };
 
 Game.propTypes = {
-  match: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired
 };
 
 export default Game;
