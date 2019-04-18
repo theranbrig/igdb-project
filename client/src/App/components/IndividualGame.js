@@ -93,7 +93,11 @@ const IndividualGame = ({ data, platformId }) => {
 
 IndividualGame.propTypes = {
 	data: PropTypes.object.isRequired,
+<<<<<<< HEAD
 	platformId: PropTypes.number.isRequired
+=======
+	platformId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+>>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761
 };
 
 export default IndividualGame;

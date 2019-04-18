@@ -11,6 +11,54 @@ const authUser = { email: 'fake@fake.com' };
 const nonAuthUser = null;
 
 it('renders the navbar without user', () => {
+<<<<<<< HEAD
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ authUser: nonAuthUser }}>
+        <NavBar />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+});
+
+it('renders the navbar with a user', () => {
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ authUser }}>
+        <NavBar />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+});
+
+it('renders heading correctly', () => {
+  const heading = TestRenderer.create(<Heading />).toJSON();
+  expect(heading).toMatchSnapshot();
+});
+
+it('renders the home page correctly', () => {
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ authUser }}>
+        <Home />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+});
+
+it('renders the home page correctly', () => {
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ loading: true }}>
+        <Spinner />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+=======
 	const element = TestRenderer.create(
 		<Router>
 			<FirebaseContext.Provider value={{ authUser: nonAuthUser }}>
@@ -57,4 +105,5 @@ it('renders the home page correctly', () => {
 		</Router>
 	).toJSON();
 	expect(element).toMatchSnapshot();
+>>>>>>> d6254eeabc601f61666a349ccec4f094319235ca
 });

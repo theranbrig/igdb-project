@@ -44,7 +44,11 @@ const FavoriteGameButton = ({ gameId, name, platformId }) => {
 FavoriteGameButton.propTypes = {
 	gameId: PropTypes.number.isRequired,
 	name: PropTypes.string.isRequired,
+<<<<<<< HEAD
 	platformId: PropTypes.string.isRequired
+=======
+	platformId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+>>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761
 };
 
 export default FavoriteGameButton;

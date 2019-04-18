@@ -14,6 +14,38 @@ const nonAuthUser = null;
 const platform = 18;
 
 it('renders the platfrom form correctly', () => {
+<<<<<<< HEAD
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ platform }}>
+        <Form />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+});
+
+it('renders the signup form correctly', () => {
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ platform }}>
+        <SignUp />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+});
+
+it('renders the login form correctly', () => {
+  const element = TestRenderer.create(
+    <Router>
+      <FirebaseContext.Provider value={{ platform }}>
+        <Login />
+      </FirebaseContext.Provider>
+    </Router>
+  ).toJSON();
+  expect(element).toMatchSnapshot();
+=======
 	const element = TestRenderer.create(
 		<Router>
 			<FirebaseContext.Provider value={{ platform }}>
@@ -44,4 +76,5 @@ it('renders the login form correctly', () => {
 		</Router>
 	).toJSON();
 	expect(element).toMatchSnapshot();
+>>>>>>> d6254eeabc601f61666a349ccec4f094319235ca
 });

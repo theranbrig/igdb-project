@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 .env
 client/.env
+=======
 
-backend/node_modules
+.DS_Store
+>>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761
+
+node_modules
 client/node_modules
 
 # dependencies
@@ -25,4 +30,8 @@ client/.env.production.local
 client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
+<<<<<<< HEAD
 node_modules
+=======
+node_modules/
+>>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761

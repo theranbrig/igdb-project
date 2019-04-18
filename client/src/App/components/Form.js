@@ -41,8 +41,12 @@ const Form = props => {
 };
 
 Form.propTypes = {
+<<<<<<< HEAD
 	// eslint-disable-next-line react/require-default-props
 	platform: PropTypes.number
+=======
+	platform: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+>>>>>>> 9e1a0c12f452f7fe61a53c89605cdacfb266d761
 };
 
 export default Form;

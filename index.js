@@ -24,7 +24,7 @@ const gameRequest =
 	'name,summary,platforms.name,genres.name,involved_companies.company.name,cover.image_id,release_dates.y,screenshots.image_id,rating';
 
 // Random Game Route
-app.get('/api/random', cors(), async (req, res) => {
+app.get('/api/random', async (req, res) => {
 	const platform = req.query.platform || 18;
 	const randomRating = Math.floor(Math.random() * 100);
 	try {
@@ -44,7 +44,7 @@ app.get('/api/random', cors(), async (req, res) => {
 });
 
 // Route with Game ID
-app.get('/api/game/:gameId/:platform', cors(), async (req, res) => {
+app.get('/api/game/:gameId/:platform', async (req, res) => {
 	const gameId = req.params.gameId;
 	try {
 		const response = await apicalypse(requestOptions)

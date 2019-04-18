@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import firebase from 'firebase';
 import PropTypes from 'prop-types';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const FirebaseContext = React.createContext();
 
